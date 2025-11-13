@@ -1,4 +1,6 @@
+import cors from "cors";
 import express from "express";
+import { serve } from "inngest";
 import path from "path";
 import { connectDB } from "./Db/db.js";
 import { ENV } from "./lib/env.js";
@@ -7,7 +9,18 @@ const app = express();
 
 const __dirname = path.resolve();
 
-app.get("/", (req, res) => {
+//middlewares
+app.use(express.json())
+
+//credentials means we can send cookies from frontend to backend
+app.use(cors({
+  origin: ENV.FRONTEND_URL,
+  credentials: true,
+}));
+
+app.use("/api/inngest", serve({ client: inngest, functions }))
+
+app.get("/api", (req, res) => {
   res.status(200).json("Hello World!");
 });
 
