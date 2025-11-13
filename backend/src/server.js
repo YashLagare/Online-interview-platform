@@ -1,9 +1,10 @@
 import cors from "cors";
 import express from "express";
-import { inngest } from "inngest";
+import { serve } from "inngest";
 import path from "path";
 import { connectDB } from "./Db/db.js";
 import { ENV } from "./lib/env.js";
+import { functions, inngest } from "./lib/inngest.js";
 
 const app = express();
 
