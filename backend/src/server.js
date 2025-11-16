@@ -1,3 +1,4 @@
+import { clerkMiddleware } from '@clerk/express';
 import cors from "cors";
 import express from "express";
 import { serve } from "inngest/express";
@@ -5,6 +6,7 @@ import path from "path";
 import { connectDB } from "./Db/db.js";
 import { ENV } from "./lib/env.js";
 import { functions, inngest } from "./lib/inngest.js";
+import chatRoutes from "./routes/chatRoutes.js";
 
 const app = express();
 
@@ -18,16 +20,19 @@ app.use(cors({
   origin: ENV.FRONTEND_URL,
   credentials: true,
 }));
+app.use(clerkMiddleware());// this adds auth fileds to request object: req.auth() we can say
 
-app.use("/api/inngest", serve({ client: inngest, functions }))
+//routes
+app.use("/api/inngest", serve({ client: inngest, functions }));
+app.use("/api/chat", chatRoutes)
 
 app.get("/api", (req, res) => {
   res.status(200).json("Hello World!");
 });
 
-app.get("/books", (req, res) => {
-  res.status(200).json("Hello Book!");
-});
+
+
+
 
 //for deployment on sevalla
 if (ENV.NODE_ENV === "production") {
