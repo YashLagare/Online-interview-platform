@@ -14,27 +14,58 @@ export async function createSession(req, res) {
     // generate a unique call id for stream video
     const callId = `session_${Date.now()}_${Math.random().toString(36).substring(7)}`;
 
-    // create session in db
-    const session = await Session.create({ problem, difficulty, host: userId, callId });
+    let session = null;
+    let videoCall = null;
+    let channel = null;
 
-    // create stream video call
-    await streamClient.video.call("default", callId).getOrCreate({
-      data: {
+    try {
+      // create session in db
+      session = await Session.create({ problem, difficulty, host: userId, callId });
+
+      // create stream video call
+      videoCall = await streamClient.video.call("default", callId).getOrCreate({
+        data: {
+          created_by_id: clerkId,
+          custom: { problem, difficulty, sessionId: session._id.toString() },
+        },
+      });
+
+      // chat messaging
+      channel = chatClient.channel("messaging", callId, {
+        name: `${problem} Session`,
         created_by_id: clerkId,
-        custom: { problem, difficulty, sessionId: session._id.toString() },
-      },
-    });
+        members: [clerkId],
+      });
 
-    // chat messaging
-    const channel = chatClient.channel("messaging", callId, {
-      name: `${problem} Session`,
-      created_by_id: clerkId,
-      members: [clerkId],
-    });
+      await channel.create();
 
-    await channel.create();
-
-    res.status(201).json({ session });
+      res.status(201).json({ session });
+    } catch (innerError) {
+      // Cleanup created resources in reverse order
+      if (channel) {
+        try {
+          await channel.delete();
+        } catch (cleanupError) {
+          console.log("Error cleaning up chat channel:", cleanupError.message);
+        }
+      }
+      if (videoCall) {
+        try {
+          await videoCall.delete({ hard: true });
+        } catch (cleanupError) {
+          console.log("Error cleaning up video call:", cleanupError.message);
+        }
+      }
+      if (session) {
+        try {
+          await Session.findByIdAndDelete(session._id);
+        } catch (cleanupError) {
+          console.log("Error cleaning up DB session:", cleanupError.message);
+        }
+      }
+      // Rethrow the inner error to be handled by outer catch
+      throw innerError;
+    }
   } catch (error) {
     console.log("Error in createSession controller:", error.message);
     res.status(500).json({ message: "Internal Server Error" });
