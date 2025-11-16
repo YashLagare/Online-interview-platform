@@ -7,6 +7,9 @@ import { connectDB } from "./Db/db.js";
 import { ENV } from "./lib/env.js";
 import { functions, inngest } from "./lib/inngest.js";
 import chatRoutes from "./routes/chatRoutes.js";
+import sessionRoutes from "./routes/sessionRoutes.js";
+
+
 
 const app = express();
 
@@ -25,6 +28,7 @@ app.use(clerkMiddleware());// this adds auth fileds to request object: req.auth(
 //routes
 app.use("/api/inngest", serve({ client: inngest, functions }));
 app.use("/api/chat", chatRoutes)
+app.use("/api/session", sessionRoutes)
 
 app.get("/api", (req, res) => {
   res.status(200).json("Hello World!");
