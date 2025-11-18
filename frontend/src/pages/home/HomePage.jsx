@@ -1,5 +1,5 @@
 import HeroSection from "../../components/HeroSection/HeroSection";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/Landing-Page-Components/Navbar/Navbar";
 const HomePage = () => {
   return (
     <div className="bg-gradient-to-br from-base-100 via-base-200 to-base-300">
