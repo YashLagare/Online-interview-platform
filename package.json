@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/YashLagare/Online-interview-platform/issues"
   },
-  "homepage": "https://github.com/YashLagare/Online-interview-platform#readme"
+  "homepage": "https://github.com/YashLagare/Online-interview-platform#readme",
+  "dependencies": {
+    "@tanstack/react-query": "^5.90.5",
+    "axios": "^1.12.2"
+  }
 }
