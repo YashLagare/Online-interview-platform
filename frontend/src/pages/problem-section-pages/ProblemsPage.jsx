@@ -1,6 +1,6 @@
 import { ChevronRightIcon, Code2Icon } from "lucide-react";
 import { Link } from "react-router";
-import Navbar from "../../components/mainPage-Components/Navbar";
+import Navbar from "../../components/mainPage-Components/Navbar.jsx";
 import { PROBLEMS } from "../../data/problems.js";
 import { getDifficultyBadgeClass } from "../../utils/FilterHelperFun.js";
 
@@ -32,7 +32,7 @@ const ProblemsPage = () => {
           {problems.map((problem) => (
             <Link
               key={problem.id}
-              to={`/problem/${problem.id}`}
+              to={`/problems/${problem.id}`}
               className="card bg-base-100 hover:scale-[1.01] transition-transform"
             >
               <div className="card-body">

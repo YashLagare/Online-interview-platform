@@ -3,7 +3,8 @@ import { Toaster } from 'react-hot-toast';
 import { Navigate, Route, Routes } from 'react-router';
 import DashboardPage from "./pages/DashBoard/DashboardPage";
 import HomePage from './pages/home/HomePage';
-import ProblemsPage from './pages/problems/ProblemsPage';
+import ProblemPage from './pages/problem-section-pages/ProblemPage/ProblemPage.jsx';
+import ProblemsPage from './pages/problem-section-pages/ProblemsPage';
 
 const App = () => {
 
@@ -22,7 +23,8 @@ const App = () => {
         <Route path='/dashboard' element={ isSignedIn ? <DashboardPage /> : <Navigate to={"/"}/>} />
 
         <Route path='/problems' element={isSignedIn ? <ProblemsPage /> : <Navigate to='/' />} />
-
+        
+        <Route path='/problems/:id' element={isSignedIn ? <ProblemPage /> : <Navigate to='/' />} />
       </Routes>
 
       <Toaster toastOptions={{duration: 3000}} />
