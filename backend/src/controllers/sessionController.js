@@ -39,7 +39,11 @@ export async function createSession(req, res) {
 
       await channel.create();
 
-      res.status(201).json({ session });
+      const populatedSession = await Session.findById(session._id)
+        .populate("host", "username profileImage email clerkId")
+        .populate("participant", "username profileImage email clerkId");
+
+      res.status(201).json({ session: populatedSession });
     } catch (innerError) {
       // Cleanup created resources in reverse order
       if (channel) {
@@ -75,8 +79,8 @@ export async function createSession(req, res) {
 export async function getActiveSessions(_, res) {
   try {
     const sessions = await Session.find({ status: "active" })
-      .populate("host", "name profileImage email clerkId")
-      .populate("participant", "name profileImage email clerkId")
+      .populate("host", "username profileImage email clerkId")
+      .populate("participant", "username profileImage email clerkId")
       .sort({ createdAt: -1 })
       .limit(20);
 
@@ -111,8 +115,8 @@ export async function getSessionById(req, res) {
     const { id } = req.params;
 
     const session = await Session.findById(id)
-      .populate("host", "name email profileImage clerkId")
-      .populate("participant", "name email profileImage clerkId");
+      .populate("host", "username email profileImage clerkId")
+      .populate("participant", "username email profileImage clerkId");
 
     if (!session) return res.status(404).json({ message: "Session not found" });
 
@@ -150,7 +154,11 @@ export async function joinSession(req, res) {
     const channel = chatClient.channel("messaging", session.callId);
     await channel.addMembers([clerkId]);
 
-    res.status(200).json({ session });
+    const populatedSession = await Session.findById(session._id)
+      .populate("host", "username profileImage email clerkId")
+      .populate("participant", "username profileImage email clerkId");
+
+    res.status(200).json({ session: populatedSession });
   } catch (error) {
     console.log("Error in joinSession controller:", error.message);
     res.status(500).json({ message: "Internal Server Error" });

@@ -18,17 +18,19 @@ const __dirname = path.resolve();
 //middlewares
 app.use(express.json())
 
+app.use(clerkMiddleware());// this adds auth fileds to request object: req.auth() we can say
+
 //credentials means we can send cookies from frontend to backend
 app.use(cors({
   origin: ENV.FRONTEND_URL,
   credentials: true,
 }));
-app.use(clerkMiddleware());// this adds auth fileds to request object: req.auth() we can say
+
 
 //routes
 app.use("/api/inngest", serve({ client: inngest, functions }));
 app.use("/api/chat", chatRoutes)
-app.use("/api/session", sessionRoutes)
+app.use("/api/sessions", sessionRoutes)
 
 app.get("/api", (req, res) => {
   res.status(200).json("Hello World!");
