@@ -15,24 +15,27 @@ const app = express();
 
 const __dirname = path.resolve();
 
+//credentials means we can send cookies from frontend to backend
+app.use(cors({
+  origin: ENV.FRONTEND_URL,
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
+
+
 //middlewares
 app.use(express.json())
 
 app.use(clerkMiddleware());// this adds auth fileds to request object: req.auth() we can say
 
-//credentials means we can send cookies from frontend to backend
-app.use(cors({
-  origin: ENV.FRONTEND_URL,
-  credentials: true,
-}));
 
 
 //routes
-app.use("/api/inngest", serve({ client: inngest, functions }));
+app.use("/inngest", serve({ client: inngest, functions }));
 app.use("/api/chat", chatRoutes)
 app.use("/api/sessions", sessionRoutes)
 
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).json("Hello World!");
 });
 
