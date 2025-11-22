@@ -5,6 +5,7 @@ import DashboardPage from "./pages/DashBoard/DashboardPage";
 import HomePage from './pages/home/HomePage';
 import ProblemPage from './pages/problem-section-pages/ProblemPage/ProblemPage.jsx';
 import ProblemsPage from './pages/problem-section-pages/ProblemsPage';
+import SessionPage from "./pages/SessionPage/SessionPage.jsx";
 
 const App = () => {
 
@@ -25,6 +26,8 @@ const App = () => {
         <Route path='/problems' element={isSignedIn ? <ProblemsPage /> : <Navigate to='/' />} />
         
         <Route path='/problems/:id' element={isSignedIn ? <ProblemPage /> : <Navigate to='/' />} />
+
+        <Route path='/session/:id' element={isSignedIn ? <SessionPage /> : <Navigate to='/' />} />
       </Routes>
 
       <Toaster toastOptions={{duration: 3000}} />
