@@ -6,11 +6,11 @@
 //     <div className="fixed inset-0 backdrop-blur-xl bg-white/10 z-[999] flex items-center justify-center p-6">
 //       <div className="bg-white/20 backdrop-blur-2xl border border-white/30 shadow-xl p-8 rounded-3xl max-w-sm text-center">
 //         <MonitorX size={40} className="mx-auto mb-4 text-white" />
-        
+
 //         <h2 className="text-2xl font-bold text-white mb-2">
 //           Screen Too Small
 //         </h2>
-        
+
 //         <p className="text-white/90 mb-4">
 //           DevScreen is optimized for larger screens.  
 //           Please use a laptop or desktop for the best interview experience.
@@ -28,7 +28,7 @@
 
 
 import { motion } from "framer-motion";
-import { MonitorX, Smartphone } from "lucide-react";
+import { Check, Monitor, Smartphone, X } from "lucide-react";
 
 const ScreenTooSmall = () => {
   return (
@@ -59,7 +59,7 @@ const ScreenTooSmall = () => {
       <motion.div
         initial={{ scale: 0.8, y: 50 }}
         animate={{ scale: 1, y: 0 }}
-        transition={{ 
+        transition={{
           duration: 0.6,
           type: "spring",
           stiffness: 200,
@@ -84,7 +84,7 @@ const ScreenTooSmall = () => {
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
-          transition={{ 
+          transition={{
             duration: 0.6,
             delay: 0.2,
             type: "spring",
@@ -92,20 +92,28 @@ const ScreenTooSmall = () => {
           }}
         >
           <motion.div
-            animate={{ 
+            animate={{
               rotate: [0, -5, 5, -5, 0],
               y: [0, -5, 0]
             }}
-            transition={{ 
+            transition={{
               duration: 2,
               repeat: Infinity,
               repeatDelay: 1
             }}
           >
-            <MonitorX size={40} className="mx-auto mb-4 text-white drop-shadow-lg" />
+            <div className="relative w-10 h-10 mx-auto mb-4">
+              <Monitor className="w-10 h-10 text-white" />
+              <Check className="absolute inset-0 m-auto w-5 h-5 text-green-400" />
+            </div>
+            {/* <Monitor  size={40} className="mx-auto mb-4 text-white drop-shadow-lg" /> */}
+            {/* <div className="relative w-12 h-12 mx-auto">
+              <Monitor className="text-white w-12 h-12" />
+              <Check className="absolute bottom-0 right-0 text-green-400 w-5 h-5 drop-shadow-md" />
+            </div> */}
           </motion.div>
         </motion.div>
-        
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -114,14 +122,14 @@ const ScreenTooSmall = () => {
         >
           Screen Too Small
         </motion.h2>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-white/90 mb-4"
         >
-          DevScreen is optimized for larger screens.  
+          DevScreen is optimized for larger screens.
           Please use a laptop or desktop for the best interview experience.
         </motion.p>
 
@@ -129,7 +137,7 @@ const ScreenTooSmall = () => {
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 0.8 }}
-          transition={{ 
+          transition={{
             duration: 0.5,
             delay: 0.6,
             type: "spring",
@@ -137,16 +145,21 @@ const ScreenTooSmall = () => {
           }}
         >
           <motion.div
-            animate={{ 
+            animate={{
               y: [0, -8, 0],
             }}
-            transition={{ 
+            transition={{
               duration: 2,
               repeat: Infinity,
               ease: "easeInOut"
             }}
           >
-            <Smartphone size={26} className="mx-auto mt-2 text-white drop-shadow-lg" />
+            {/* <Smartphone size={26} className="mx-auto mt-2 text-white drop-shadow-lg" /> */}
+
+            <div className="relative w-10 h-10 mx-auto mt-3">
+              <Smartphone className="text-white w-10 h-10" />
+              <X className="absolute inset-0 m-auto text-red-400 w-5 h-5 drop-shadow-lg" />
+            </div>
           </motion.div>
         </motion.div>
 
