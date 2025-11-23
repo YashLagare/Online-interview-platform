@@ -1,7 +1,7 @@
 
 import { UserButton } from "@clerk/clerk-react";
 import { motion } from "framer-motion";
-import { BookOpen, HandMetal, LayoutDashboard, Sparkles } from "lucide-react";
+import { BookOpen, LayoutDashboard, MonitorPlay, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
 
@@ -52,7 +52,7 @@ const Navbar = () => {
 
                             {/* Icon */}
                             <div className="relative size-10 rounded-xl bg-gradient-to-r from-primary via-secondary to-accent flex items-center justify-center shadow-lg">
-                                <HandMetal className="size-6 text-white" />
+                                <MonitorPlay className="size-6 text-white" />
                             </div>
 
                             {/* Sparkle on hover */}
@@ -77,7 +77,7 @@ const Navbar = () => {
                                 transition={{ duration: 0.3 }}
                                 className="font-black text-xl bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent font-mono tracking-wider"
                             >
-                                Skill
+                                DevScreen
                             </motion.span>
                             <span className="text-xs text-base-content/60 font-medium -mt-1 group-hover:text-base-content/80 transition-colors">
                                 Code Together
