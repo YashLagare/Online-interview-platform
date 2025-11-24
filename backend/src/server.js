@@ -31,7 +31,7 @@ app.use(clerkMiddleware());// this adds auth fileds to request object: req.auth(
 
 
 //routes
-app.use("/inngest", serve({ client: inngest, functions }));
+app.use("/api/inngest", serve({ client: inngest, functions }));
 app.use("/api/chat", chatRoutes)
 app.use("/api/sessions", sessionRoutes)
 
