@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --prefix backend && cd frontend && npm install && npm run build",
+    "build": "npm install --prefix backend && cd frontend && rm -f package-lock.json && npm install --legacy-peer-deps && npm run build",
     "start": "npm run start --prefix backend"
   },
   "repository": {
