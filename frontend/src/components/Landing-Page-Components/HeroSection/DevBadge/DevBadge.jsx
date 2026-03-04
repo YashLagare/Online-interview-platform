@@ -64,7 +64,7 @@ import { Code2 } from "lucide-react";
 // DevBadge Component
 export const DevBadge = () => {
   const handlePortfolioClick = () => {
-    window.open('https://yashlagare.github.io/portfolio/', '_blank', 'noopener,noreferrer');
+    window.open('https://portfolio-five-opal-53.vercel.app/', '_blank', 'noopener,noreferrer');
   };
 
   return (
