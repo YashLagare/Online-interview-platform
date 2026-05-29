@@ -17,13 +17,12 @@
 10. Application Flow (Stepwise)
 11. Backend Internal Flow
 12. Frontend Internal Flow
-13. Auto API Documentation
-14. Dependencies Installation
-15. Environment Variables
-16. How To Run Project
-17. Runtime Flow (After Startup)
-18. Common Errors & Fixes
-19. Developer Notes
+13. Dependencies Installation
+14. Environment Variables
+15. How To Run Project
+16. Runtime Flow (After Startup)
+17. Common Errors & Fixes
+18. Developer Notes
 
 ---
 
@@ -452,87 +451,9 @@ Render Components:
 
 ---
 
-# 13. AUTO API DOCUMENTATION
-# ============================================================================
 
-## API Endpoints Overview
 
-| Method | Endpoint | Description | Auth Required | Request Body | Response |
-|--------|----------|-------------|---------------|--------------|----------|
-| POST | `/api/sessions` | Create new session | Yes | `problem`, `difficulty` | Session Object |
-| GET | `/api/sessions/active` | Get all active sessions | Yes | - | List of Sessions |
-| GET | `/api/sessions/my-recent` | Get user's history | Yes | - | List of Sessions |
-| GET | `/api/sessions/:id` | Get session details | Yes | - | Session Object |
-| POST | `/api/sessions/:id/join` | Join a session | Yes | - | Session Object |
-| POST | `/api/sessions/:id/end` | End a session | Yes | - | Message + Session |
-| GET | `/api/chat/token` | Get Stream Chat Token | Yes | - | Token String |
-
----
-
-### Detailed Endpoint Reference
-
-#### POST /api/sessions
-- **Purpose**: Creates a new interview session and initializes Stream resources.
-- **Auth**: Required.
-- **Request**:
-  ```json
-  {
-    "problem": "Two Sum",
-    "difficulty": "Easy"
-  }
-  ```
-- **Response** (201):
-  ```json
-  {
-    "session": {
-      "_id": "65d...",
-      "host": { "username": "...", "clerkId": "..." },
-      "callId": "session_170...",
-      "status": "active"
-    }
-  }
-  ```
-- **Flow**: Route -> Session Controller -> Stream API -> MongoDB Create -> Response
-
-#### GET /api/sessions/active
-- **Purpose**: Retrieves list of sessions where `status: "active"`.
-- **Auth**: Required.
-- **Response** (200):
-  ```json
-  {
-    "sessions": [ { "host": {...}, "problem": "Two Sum" }, ... ]
-  }
-  ```
-
-#### POST /api/sessions/:id/join
-- **Purpose**: Adds current user as `participant` to the session.
-- **Auth**: Required.
-- **Logic**: Fails if session is full or user is host.
-- **Response** (200): Updated Session Object.
-
-#### POST /api/sessions/:id/end
-- **Purpose**: Marks session as `completed` and cleans up Stream resources.
-- **Auth**: Required (Host only).
-- **Response** (200):
-  ```json
-  { "message": "Session ended successfully", "session": {...} }
-  ```
-
-#### GET /api/chat/token
-- **Purpose**: Generates a temporary token for the user to connect to Stream Chat.
-- **Auth**: Required.
-- **Response** (200):
-  ```json
-  {
-    "token": "eyJhbG...",
-    "userId": "user_clerk_id",
-    "userName": "Name"
-  }
-  ```
-
----
-
-# 14. DEPENDENCIES INSTALLATION
+# 13. DEPENDENCIES INSTALLATION
 # ============================================================================
 
 ## Backend Setup
@@ -581,7 +502,7 @@ Render Components:
 
 ---
 
-# 15. ENVIRONMENT VARIABLES
+# 14. ENVIRONMENT VARIABLES
 # ============================================================================
 
 ## Backend (`backend/.env`)
@@ -606,7 +527,7 @@ Render Components:
 
 ---
 
-# 16. HOW TO RUN PROJECT
+# 15. HOW TO RUN PROJECT
 # ============================================================================
 
 ## Step 1: Configure Environment
@@ -631,7 +552,7 @@ Open `http://localhost:5173`, sign in via Clerk, and check the Dashboard.
 
 ---
 
-# 17. RUNTIME FLOW (AFTER STARTUP)
+# 16. RUNTIME FLOW (AFTER STARTUP)
 # ============================================================================
 
 1. **Idle State**: Server waits for API requests on Port 5000.
@@ -642,7 +563,7 @@ Open `http://localhost:5173`, sign in via Clerk, and check the Dashboard.
 
 ---
 
-# 18. COMMON ERRORS & FIXES
+# 17. COMMON ERRORS & FIXES
 # ============================================================================
 
 ### Error: "Missing Publishable Key"
@@ -659,7 +580,7 @@ Open `http://localhost:5173`, sign in via Clerk, and check the Dashboard.
 
 ---
 
-# 19. DEVELOPER NOTES
+# 18. DEVELOPER NOTES
 # ============================================================================
 
 ## Scalability Improvements
