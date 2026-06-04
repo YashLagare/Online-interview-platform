@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --prefix backend && npm cache clean --force && npm install --prefix frontend --include=dev --legacy-peer-deps && npm run build --prefix frontend",
+    "build": "npm install --prefix backend && npm cache clean --force && npm install --prefix frontend --include=dev --legacy-peer-deps --ignore-scripts && npm run build --prefix frontend",
     "start": "npm run start --prefix backend"
   },
   "repository": {
