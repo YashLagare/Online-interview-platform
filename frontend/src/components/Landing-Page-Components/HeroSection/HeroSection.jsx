@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Code2, Users, Video, Zap } from 'lucide-react';
 import { useState } from "react";
 import DevBadge from "../HeroSection/DevBadge/DevBadge";
+import DevCanvasPromo from "../HeroSection/dev-canvasPromo/DevCanvasPromo";
 const HeroSection = () => {
     const [hoveredCard, setHoveredCard] = useState(null);
     const floatingIcons = [
@@ -216,7 +217,10 @@ const HeroSection = () => {
                                 </motion.div>
                             ))}
                         </motion.div>
+
                     </motion.div>
+
+
 
                     {/* RIGHT HERO IMAGE */}
                     <motion.div
@@ -274,7 +278,7 @@ const HeroSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-center mb-16"
+                        className="text-center mb-14"
                     >
                         <h2 className="text-5xl font-bold mb-4">
                             Everything You Need to{" "}
@@ -326,6 +330,10 @@ const HeroSection = () => {
                             </motion.div>
                         ))}
                     </div>
+                    <div className="mt-5">
+                        <DevCanvasPromo />
+                    </div>
+                    
                 </div>
             </section>
         </div>

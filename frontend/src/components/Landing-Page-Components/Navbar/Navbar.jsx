@@ -1,7 +1,7 @@
 
 import { SignInButton } from "@clerk/clerk-react";
 import { motion } from "framer-motion";
-import { ArrowRight, MonitorPlay, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
@@ -47,7 +47,7 @@ const Navbar = () => {
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl blur-lg opacity-60 group-hover:opacity-100 transition-opacity" />
                             <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 flex items-center justify-center shadow-lg">
-                                <MonitorPlay className="w-6 h-6 text-white" />
+                                <img src="/logo.png" alt="DevScreen Logo" className="w-8 h-8 object-contain" />
                             </div>
 
                             {/* Sparkle effect on hover */}

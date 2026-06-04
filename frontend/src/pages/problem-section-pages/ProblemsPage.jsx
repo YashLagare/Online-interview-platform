@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ChevronRightIcon, Code2Icon } from "lucide-react";
 import { Link } from "react-router";
+import DevCanvasPromo from "../../components/Landing-Page-Components/HeroSection/dev-canvasPromo/DevCanvasPromo.jsx";
 import Navbar from "../../components/mainPage-Components/Navbar.jsx";
 import { PROBLEMS } from "../../data/problems.js";
 import { getDifficultyBadgeClass } from "../../utils/FilterHelperFun.js";
@@ -244,6 +245,11 @@ const ProblemsPage = () => {
             </div>
           </div>
         </motion.div>
+
+
+        <div className="mt-5">
+          <DevCanvasPromo />
+        </div>
 
       </div>
 
