@@ -1,7 +1,7 @@
 
 import { UserButton } from "@clerk/clerk-react";
 import { motion } from "framer-motion";
-import { BookOpen, LayoutDashboard, MonitorPlay, Sparkles } from "lucide-react";
+import { BookOpen, LayoutDashboard, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
 
@@ -52,7 +52,7 @@ const Navbar = () => {
 
                             {/* Icon */}
                             <div className="relative size-10 rounded-xl bg-gradient-to-r from-primary via-secondary to-accent flex items-center justify-center shadow-lg">
-                                <MonitorPlay className="size-6 text-white" />
+                                <img src="/logo.png" alt="DevScreen Logo" className="size-6 object-contain" />
                             </div>
 
                             {/* Sparkle on hover */}
