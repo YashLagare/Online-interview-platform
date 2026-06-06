@@ -1,5 +1,5 @@
 # ============================================================================
-# DevScreen (ONLINE INTERVIEW PLATFORM) - PROJECT DOCUMENTATION
+# DevScreen (ONLINE INTERVIEW PLATFORM) - DOCUMENTATION
 # ============================================================================
 <img width="1903" height="909" alt="image" src="https://github.com/user-attachments/assets/56eac2f6-ef82-47d0-b627-cc522fe527b3" />
 
