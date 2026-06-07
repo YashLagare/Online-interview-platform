@@ -28,7 +28,12 @@ const CodeEditorPanel = ({
           </select>
         </div>
 
-        <button className="btn btn-primary btn-sm gap-2" disabled={isRunning} onClick={onRunCode}>
+        <button 
+          className="btn btn-primary btn-sm gap-2 opacity-50 cursor-not-allowed" 
+          disabled={isRunning} 
+          onClick={onRunCode}
+          title="Code execution service unavailable."
+        >
           {isRunning ? (
             <>
               <Loader2Icon className="size-4 animate-spin" />

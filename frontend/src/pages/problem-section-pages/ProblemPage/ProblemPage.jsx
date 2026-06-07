@@ -103,7 +103,9 @@ function ProblemPage() {
                 toast.error("Tests failed. Check your output!");
             }
         } else {
-            toast.error("Code execution failed!");
+            if (!result.error?.includes("Code execution is currently unavailable")) {
+                toast.error("Code execution failed!");
+            }
         }
     };
 

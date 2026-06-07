@@ -24,46 +24,14 @@ export async function executeCode(language, code) {
       };
     }
 
-    const response = await fetch(`${PISTON_API}/execute`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        language: languageConfig.language,
-        version: languageConfig.version,
-        files: [
-          {
-            name: `main.${getFileExtension(language)}`,
-            content: code,
-          },
-        ],
-      }),
-    });
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 500));
 
-    if (!response.ok) {
-      return {
-        success: false,
-        error: `HTTP error! status: ${response.status}`,
-      };
-    }
-
-    const data = await response.json();
-
-    const output = data.run.output || "";
-    const stderr = data.run.stderr || "";
-
-    if (stderr) {
-      return {
-        success: false,
-        output: output,
-        error: stderr,
-      };
-    }
+    const infoMessage = "Code execution is currently unavailable because the public code execution service used by this application has been discontinued for public access. All other features remain fully functional.";
 
     return {
-      success: true,
-      output: output || "No output",
+      success: false,
+      error: infoMessage,
     };
   } catch (error) {
     return {
