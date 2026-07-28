@@ -7,7 +7,7 @@
 
 1. Project Overview
 2. Technology Stack
-3. Features List (FULL)
+3. Features List
 4. Folder Structure Explanation
 5. System Architecture
 6. DFD (Data Flow Diagram) Explanation
@@ -113,7 +113,7 @@ This is a full-stack Modern Web Application built with the MERN stack (MongoDB, 
 
 ---
 
-# 3. FEATURES LIST (FULL)
+# 3. FEATURES LIST
 # ============================================================================
 
 ## User Management
