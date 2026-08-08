@@ -1,6 +1,6 @@
-# ============================================================================
+
 # DevScreen (ONLINE INTERVIEW PLATFORM) - DOCUMENTATION
-# ============================================================================
+
 <img width="1903" height="909" alt="image" src="https://github.com/user-attachments/assets/56eac2f6-ef82-47d0-b627-cc522fe527b3" />
 
 ## TABLE OF CONTENTS
@@ -28,7 +28,6 @@
 
 # ============================================================================
 # 1. PROJECT OVERVIEW
-# ============================================================================
 
 ## Project Name
 Online Interview Platform
@@ -595,6 +594,4 @@ Open `http://localhost:5173`, sign in via Clerk, and check the Dashboard.
 - **React Query**: Configured to cache session lists. Tweaking `staleTime` can reduce server load.
 - **Lazy Loading**: Code Editor is heavy; ensure it's lazy loaded.
 
-# ============================================================================
-# END OF DOCUMENTATION
-# ============================================================================
+Written By Yash Lagare
