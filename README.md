@@ -26,7 +26,6 @@
 
 ---
 
-# ============================================================================
 # 1. PROJECT OVERVIEW
 
 ## Project Name
@@ -50,7 +49,6 @@ This is a full-stack Modern Web Application built with the MERN stack (MongoDB, 
 ---
 
 # 2. TECHNOLOGY STACK
-# ============================================================================
 
 ## Frontend
 
@@ -113,7 +111,6 @@ This is a full-stack Modern Web Application built with the MERN stack (MongoDB, 
 ---
 
 # 3. FEATURES LIST
-# ============================================================================
 
 ## User Management
 - [x] Secure Sign-up/Login via Clerk (Google, GitHub, Email)
@@ -147,7 +144,6 @@ This is a full-stack Modern Web Application built with the MERN stack (MongoDB, 
 ---
 
 # 4. FOLDER STRUCTURE EXPLANATION
-# ============================================================================
 
 ## Backend Structure (`backend/src`)
 
@@ -204,7 +200,6 @@ frontend/src/
 ---
 
 # 5. SYSTEM ARCHITECTURE
-# ============================================================================
 
 ## Client-Server Architecture
 
@@ -251,7 +246,6 @@ frontend/src/
 ---
 
 # 6. DFD (DATA FLOW DIAGRAM) EXPLANATION
-# ============================================================================
 
 ## Level 0 - Context Diagram
 
@@ -291,7 +285,6 @@ frontend/src/
 ---
 
 # 7. ERD (ENTITY RELATIONSHIP DIAGRAM) EXPLANATION
-# ============================================================================
 
 ## Entities
 
@@ -326,7 +319,7 @@ frontend/src/
 ---
 
 # 8. SECURITY ARCHITECTURE
-# ============================================================================
+
 
 ## Authentication Mechanism
 - **Clerk Auth**: Handles all Identity Management (Signup, Login, Sessions).
@@ -347,7 +340,6 @@ frontend/src/
 ---
 
 # 9. AUTHENTICATION FLOW (CLERK + STREAM)
-# ============================================================================
 
 ## 1. User Login (Clerk)
 User authenticates on Frontend via Clerk Component -> Clerk returns Session Token.
@@ -369,8 +361,7 @@ Frontend uses `token` to connect to Stream WebSocket directly.
 
 ---
 
-# 10. APPLICATION FLOW (STEPWISE)
-# ============================================================================
+# 10. APPLICATION FLOW
 
 ### 1. Startup
 - **Backend**: Connects to MongoDB, inits Stream Client, starts Express on PORT.
@@ -400,7 +391,6 @@ Frontend uses `token` to connect to Stream WebSocket directly.
 ---
 
 # 11. BACKEND INTERNAL FLOW
-# ============================================================================
 
 ```
 Request (POST /sessions)
@@ -427,7 +417,7 @@ Response (201 Created)
 ---
 
 # 12. FRONTEND INTERNAL FLOW
-# ============================================================================
+
 
 ```
 App.jsx (Router)
@@ -453,7 +443,7 @@ Render Components:
 
 
 # 13. DEPENDENCIES INSTALLATION
-# ============================================================================
+
 
 ## Backend Setup
 
@@ -502,7 +492,7 @@ Render Components:
 ---
 
 # 14. ENVIRONMENT VARIABLES
-# ============================================================================
+
 
 ## Backend (`backend/.env`)
 
@@ -527,7 +517,6 @@ Render Components:
 ---
 
 # 15. HOW TO RUN PROJECT
-# ============================================================================
 
 ## Step 1: Configure Environment
 Ensure both `backend/.env` and `frontend/.env` are created with the keys listed above (Clerk, Stream, Mongo).
@@ -552,7 +541,6 @@ Open `http://localhost:5173`, sign in via Clerk, and check the Dashboard.
 ---
 
 # 16. RUNTIME FLOW (AFTER STARTUP)
-# ============================================================================
 
 1. **Idle State**: Server waits for API requests on Port 5000.
 2. **User Connects**: Frontend loads, Clerk checks token.
@@ -563,7 +551,6 @@ Open `http://localhost:5173`, sign in via Clerk, and check the Dashboard.
 ---
 
 # 17. COMMON ERRORS & FIXES
-# ============================================================================
 
 ### Error: "Missing Publishable Key"
 **Fix**: Ensure `VITE_CLERK_PUBLISHABLE_KEY` is in `frontend/.env`.
@@ -580,7 +567,6 @@ Open `http://localhost:5173`, sign in via Clerk, and check the Dashboard.
 ---
 
 # 18. DEVELOPER NOTES
-# ============================================================================
 
 ## Scalability Improvements
 - **Socket Scaling**: Stream handles the heavy lifting for video/chat scaling.
